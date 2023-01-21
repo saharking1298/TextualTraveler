@@ -35,7 +35,6 @@ class App:
                     # Getting location details and asking user to confirm
                     location = response.places[choice]
                     location.get_details()
-                    print(location.formatted_address.split(","))
                     print(LocationOperations.details(location))
                     answer = input("Is this your location (y/n)? ").strip().lower()
                     if answer.startswith("y"):
@@ -81,7 +80,7 @@ class App:
 
     def start(self):
         starting_place = self.ask_starting_location()
-        print("Setting up your adventure...")
+        print("Setting up your adventure...\n")
         room = self.generate_room(starting_place)
         self.engine = Engine(npc_handler=self.npc_handler)
         self.engine.start(room)
